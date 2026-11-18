@@ -6,76 +6,65 @@
   <title>Jesweer Kalakonda | AI/ML & Full-Stack Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0b1120;
+      --bg: #090d16;
       --surface: #111827;
-      --surface-hover: #1e293b;
-      --border: #1f2937;
-      --text: #f1f5f9;
+      --surface-alt: #161f33;
+      --border: #1e293b;
+      --text: #f8fafc;
       --text-muted: #94a3b8;
       --accent: #38bdf8;
+      --accent-hover: #7dd3fc;
       --accent-soft: rgba(56, 189, 248, 0.12);
-      --badge-bg: #1e293b;
+      --badge-bg: #0f172a;
       --badge-text: #cbd5e1;
-      --shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.7);
+      --shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.75);
     }
 
     [data-theme="light"] {
       --bg: #f8fafc;
       --surface: #ffffff;
-      --surface-hover: #f1f5f9;
+      --surface-alt: #f1f5f9;
       --border: #e2e8f0;
       --text: #0f172a;
       --text-muted: #475569;
       --accent: #0284c7;
+      --accent-hover: #0369a1;
       --accent-soft: rgba(2, 132, 199, 0.1);
       --badge-bg: #f1f5f9;
       --badge-text: #334155;
-      --shadow: 0 10px 25px -15px rgba(15, 23, 42, 0.15);
+      --shadow: 0 10px 25px -12px rgba(15, 23, 42, 0.12);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.65;
       transition: background-color 0.25s ease, color 0.25s ease;
     }
 
-    code, .mono {
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    a { color: inherit; text-decoration: none; }
 
     .container {
-      max-width: 1020px;
+      max-width: 1040px;
       margin: 0 auto;
       padding: 0 1.25rem;
     }
 
-    /* Header & Navbar */
+    /* Navbar */
     header {
       position: sticky;
       top: 0;
-      z-index: 50;
-      background: color-mix(in srgb, var(--bg) 88%, transparent);
-      backdrop-filter: blur(12px);
+      z-index: 100;
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
     }
 
@@ -83,28 +72,29 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 64px;
+      height: 66px;
     }
 
     .brand {
       font-weight: 700;
       font-size: 1.05rem;
       letter-spacing: -0.02em;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
     }
 
-    .brand span {
-      color: var(--accent);
-    }
+    .brand span { color: var(--accent); }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1.6rem;
       font-size: 0.9rem;
+      font-weight: 500;
       color: var(--text-muted);
+    }
+
+    .nav-links a {
+      transition: color 0.2s;
+      padding: 0.25rem 0;
     }
 
     .nav-links a:hover,
@@ -119,75 +109,84 @@
     }
 
     .icon-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
       background: var(--surface);
       border: 1px solid var(--border);
       color: var(--text);
-      padding: 0.45rem 0.7rem;
+      padding: 0.45rem 0.75rem;
       border-radius: 8px;
       cursor: pointer;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       font-weight: 500;
-      transition: border-color 0.2s, background-color 0.2s;
+      transition: border-color 0.2s, transform 0.15s;
     }
 
-    .icon-btn:hover {
-      border-color: var(--accent);
-    }
-
-    .menu-toggle {
-      display: none;
-    }
+    .icon-btn:hover { border-color: var(--accent); }
+    .menu-toggle { display: none; }
 
     /* Hero */
     .hero {
-      padding: 5rem 0 3.5rem;
+      padding: 5.25rem 0 4rem;
+      position: relative;
     }
 
-    .pill {
-      display: inline-block;
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
       background: var(--accent-soft);
       color: var(--accent);
+      border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
       font-size: 0.8rem;
       font-weight: 600;
-      padding: 0.35rem 0.8rem;
+      padding: 0.35rem 0.85rem;
       border-radius: 999px;
-      margin-bottom: 1.1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
     }
 
     .hero h1 {
-      font-size: clamp(2.1rem, 5vw, 3.1rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
+      font-size: clamp(2.25rem, 5vw, 3.35rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.12;
       margin-bottom: 0.75rem;
     }
 
     .hero .subtitle {
-      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
-      color: var(--text-muted);
-      font-weight: 500;
-      margin-bottom: 1.25rem;
+      font-size: clamp(1.05rem, 2.4vw, 1.28rem);
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1.15rem;
     }
 
     .hero p {
-      max-width: 680px;
+      max-width: 690px;
       color: var(--text-muted);
-      font-size: 1rem;
-      margin-bottom: 1.8rem;
+      font-size: 1.02rem;
+      margin-bottom: 2rem;
     }
 
     .btn-group {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 0.8rem;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
-      padding: 0.65rem 1.15rem;
-      border-radius: 8px;
+      gap: 0.5rem;
+      padding: 0.68rem 1.2rem;
+      border-radius: 9px;
       font-size: 0.9rem;
       font-weight: 600;
       border: 1px solid var(--border);
@@ -199,51 +198,61 @@
 
     .btn:hover {
       border-color: var(--accent);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
 
     .btn-primary {
       background: var(--accent);
-      color: #0b1120;
+      color: #090d16;
       border-color: var(--accent);
     }
 
     .btn-primary:hover {
-      opacity: 0.92;
-      color: #0b1120;
+      background: var(--accent-hover);
+      border-color: var(--accent-hover);
+      color: #090d16;
     }
 
     /* Sections */
     section {
-      padding: 3.25rem 0;
+      padding: 3.75rem 0;
       border-top: 1px solid var(--border);
     }
 
+    .section-tag {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+
     .section-title {
-      font-size: 1.45rem;
+      font-size: 1.6rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.025em;
       margin-bottom: 0.4rem;
     }
 
     .section-desc {
       color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 1.75rem;
+      font-size: 0.96rem;
+      margin-bottom: 1.85rem;
     }
 
     /* Cards */
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
+      border-radius: 14px;
+      padding: 1.6rem;
       box-shadow: var(--shadow);
-      transition: border-color 0.2s ease;
+      transition: border-color 0.2s ease, transform 0.2s ease;
     }
 
     .card:hover {
-      border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+      border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
     }
 
     .card-header {
@@ -251,124 +260,133 @@
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: flex-start;
-      gap: 0.5rem;
+      gap: 0.6rem;
       margin-bottom: 0.85rem;
     }
 
     .card-title {
-      font-size: 1.15rem;
-      font-weight: 600;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
     }
 
-    .card-meta {
-      font-size: 0.85rem;
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.84rem;
       color: var(--accent);
-      font-weight: 500;
+      font-weight: 600;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      background: var(--accent-soft);
+    }
+
+    .card-link:hover {
+      background: color-mix(in srgb, var(--accent) 22%, transparent);
     }
 
     .card-sub {
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       color: var(--text-muted);
+      font-weight: 500;
       margin-bottom: 0.85rem;
     }
 
     ul.clean-list {
-      padding-left: 1.15rem;
+      padding-left: 1.2rem;
       color: var(--text-muted);
-      font-size: 0.94rem;
+      font-size: 0.95rem;
     }
 
-    ul.clean-list li {
-      margin-bottom: 0.45rem;
-    }
+    ul.clean-list li { margin-bottom: 0.5rem; }
 
-    /* Grid Layouts */
     .grid-2 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.35rem;
     }
 
     .badges {
       display: flex;
       flex-wrap: wrap;
       gap: 0.45rem;
-      margin-top: 1rem;
+      margin-top: 1.15rem;
     }
 
     .badge {
       background: var(--badge-bg);
       color: var(--badge-text);
       font-size: 0.78rem;
-      padding: 0.28rem 0.65rem;
+      font-weight: 500;
+      padding: 0.3rem 0.68rem;
       border-radius: 6px;
       border: 1px solid var(--border);
     }
 
-    /* Architecture Flow Drawer */
+    /* Architecture Flow */
     .flow-toggle {
-      margin-top: 1.1rem;
-      background: var(--accent-soft);
+      margin-top: 1.2rem;
+      background: var(--surface-alt);
       color: var(--accent);
-      border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
-      padding: 0.45rem 0.85rem;
-      border-radius: 7px;
-      font-size: 0.83rem;
+      border: 1px solid var(--border);
+      padding: 0.5rem 0.9rem;
+      border-radius: 8px;
+      font-size: 0.84rem;
       font-weight: 600;
       cursor: pointer;
+      transition: border-color 0.2s;
     }
+
+    .flow-toggle:hover { border-color: var(--accent); }
 
     .flow-drawer {
       display: none;
       margin-top: 1rem;
-      padding: 1rem;
+      padding: 1.05rem;
       background: var(--bg);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 0.86rem;
+      border-radius: 10px;
+      font-size: 0.87rem;
     }
 
-    .flow-drawer.open {
-      display: block;
-    }
+    .flow-drawer.open { display: block; }
 
     .flow-step {
       display: flex;
-      gap: 0.65rem;
-      margin-bottom: 0.55rem;
+      gap: 0.7rem;
+      margin-bottom: 0.6rem;
       color: var(--text-muted);
     }
 
-    .flow-step:last-child {
-      margin-bottom: 0;
-    }
+    .flow-step:last-child { margin-bottom: 0; }
 
     .step-num {
       color: var(--accent);
       font-weight: 700;
-      min-width: 1.25rem;
+      min-width: 1.4rem;
     }
 
-    /* Contact Box */
+    /* Contact */
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
       gap: 1rem;
     }
 
     .contact-item {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.1rem;
+      border-radius: 12px;
+      padding: 1.2rem;
     }
 
     .contact-label {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.25rem;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.3rem;
     }
 
     .contact-value {
@@ -379,17 +397,17 @@
 
     footer {
       border-top: 1px solid var(--border);
-      padding: 2rem 0;
+      padding: 2.25rem 0;
       text-align: center;
       font-size: 0.85rem;
       color: var(--text-muted);
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 740px) {
       .nav-links {
         display: none;
         position: absolute;
-        top: 64px;
+        top: 66px;
         left: 0;
         right: 0;
         background: var(--surface);
@@ -399,14 +417,8 @@
         gap: 0.9rem;
         align-items: flex-start;
       }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: inline-block;
-      }
+      .nav-links.open { display: flex; }
+      .menu-toggle { display: inline-flex; }
     }
   </style>
 </head>
@@ -432,34 +444,41 @@
   <main class="container">
     <!-- Hero -->
     <section class="hero" style="border-top: none;">
-      <span class="pill mono">Open to Software Development & AI/ML Roles</span>
+      <div class="status-pill mono"><span class="dot"></span> Available for SDE, AI/ML & GenAI Roles</div>
       <h1>Jesweer Kalakonda</h1>
-      <div class="subtitle">B.Tech CSE (AI & ML) Undergraduate · Full-Stack & Generative AI Developer</div>
+      <div class="subtitle">Computer Science (AI & ML) Undergraduate · Full-Stack & Generative AI Developer</div>
       <p>
-        Computer Science undergraduate specializing in Artificial Intelligence and Machine Learning at SRM University AP. Experienced in building full-stack web applications and Generative AI solutions using Python, Flask, Gemini API, and locally hosted LLMs via Ollama.
+        B.Tech Computer Science and Engineering (AI & ML) student at SRM University AP with hands-on experience building full-stack web applications and Generative AI solutions using Python, Flask, Google Gemini API, and locally hosted LLMs via Ollama.
       </p>
       <div class="btn-group">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="https://github.com/jesweerkalakonda" target="_blank" rel="noopener" class="btn">GitHub</a>
+        <a href="#projects" class="btn btn-primary">Explore Projects</a>
+        <a href="https://github.com/jesweerkalakonda" target="_blank" rel="noopener" class="btn">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
         <!-- Replace the URL below with your LinkedIn profile link -->
-        <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="btn">LinkedIn</a>
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="btn">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          LinkedIn
+        </a>
         <a href="#contact" class="btn">Contact Me</a>
       </div>
     </section>
 
     <!-- Experience -->
     <section id="experience">
+      <div class="section-tag mono">01 / Career</div>
       <h2 class="section-title">Experience</h2>
-      <p class="section-desc">Industry internship experience in full-stack web application development.</p>
+      <p class="section-desc">Hands-on industry internship in full-stack web development.</p>
       <div class="card">
         <div class="card-header">
           <div>
             <div class="card-title">Full Stack Web Developer Intern</div>
             <div class="card-sub" style="margin-bottom: 0;">G.P InfoTech · Hyderabad, India</div>
           </div>
-          <span class="card-meta mono">May 2025 – July 2025</span>
+          <span class="card-link mono">May 2025 – July 2025</span>
         </div>
-        <ul class="clean-list" style="margin-top: 0.75rem;">
+        <ul class="clean-list" style="margin-top: 0.85rem;">
           <li>Developed a full-stack University Events Management System to streamline event creation, registration, and approval workflows.</li>
           <li>Designed and implemented responsive front-end interfaces using HTML5, CSS3, JavaScript, and Bootstrap.</li>
           <li>Built backend functionalities using PHP and integrated a MySQL database for secure data storage and management.</li>
@@ -470,11 +489,227 @@
 
     <!-- Projects -->
     <section id="projects">
+      <div class="section-tag mono">02 / Builds</div>
       <h2 class="section-title">Featured Projects</h2>
-      <p class="section-desc">End-to-end Generative AI and backend engineering applications.</p>
+      <p class="section-desc">Full-stack Generative AI platforms with real-time streaming and local LLM pipelines.</p>
       <div class="grid-2">
         <!-- Project 1 -->
         <div class="card">
           <div class="card-header">
             <div class="card-title">LintVertex</div>
-            <a href="https://github.com/jesweerkalakonda/LintVertex" target="_blank" rel="noopener" class="card-meta mono
+            <a href="https://github.com/jesweerkalakonda/LintVertex" target="_blank" rel="noopener" class="card-link mono">GitHub ↗</a>
+          </div>
+          <div class="card-sub">AI-Powered Code Review Platform</div>
+          <p style="color: var(--text-muted); font-size: 0.94rem;">
+            Full-stack AI code review platform that analyzes submitted source code to improve code quality, readability, and maintainability, featuring real-time collaborative review rooms, automated quality scoring, and JWT authentication.
+          </p>
+          <div class="badges mono">
+            <span class="badge">Python</span>
+            <span class="badge">Flask</span>
+            <span class="badge">Gemini API</span>
+            <span class="badge">Ollama</span>
+            <span class="badge">Supabase</span>
+            <span class="badge">JWT</span>
+            <span class="badge">SSE</span>
+          </div>
+          <button class="flow-toggle" onclick="toggleFlow('flow1', this)">View Architecture Flow</button>
+          <div class="flow-drawer" id="flow1">
+            <div class="flow-step"><span class="step-num mono">01</span><span>Frontend captures submitted source code from the developer.</span></div>
+            <div class="flow-step"><span class="step-num mono">02</span><span>Flask backend validates and prepares the code payload.</span></div>
+            <div class="flow-step"><span class="step-num mono">03</span><span>Google Gemini API generates code feedback, with local Ollama models acting as a fallback.</span></div>
+            <div class="flow-step"><span class="step-num mono">04</span><span>Supabase stores session data while JWT secures routes and SSE streams real-time updates.</span></div>
+            <div class="flow-step"><span class="step-num mono">05</span><span>Actionable review suggestions and quality scores render on the client interface.</span></div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">WanderMind</div>
+            <a href="https://github.com/jesweerkalakonda/WanderMind" target="_blank" rel="noopener" class="card-link mono">GitHub ↗</a>
+          </div>
+          <div class="card-sub">AI-Powered Travel Planner</div>
+          <p style="color: var(--text-muted); font-size: 0.94rem;">
+            Privacy-first AI travel planning application that extracts real-time destination data via Firecrawl and generates personalized itineraries and budget recommendations using a locally hosted LLaMA 3.2 model.
+          </p>
+          <div class="badges mono">
+            <span class="badge">Python</span>
+            <span class="badge">Flask</span>
+            <span class="badge">Ollama</span>
+            <span class="badge">LLaMA 3.2</span>
+            <span class="badge">Firecrawl</span>
+          </div>
+          <button class="flow-toggle" onclick="toggleFlow('flow2', this)">View Architecture Flow</button>
+          <div class="flow-drawer" id="flow2">
+            <div class="flow-step"><span class="step-num mono">01</span><span>User enters destination, budget, trip duration, and travel preferences.</span></div>
+            <div class="flow-step"><span class="step-num mono">02</span><span>Firecrawl extracts clean, relevant destination data from travel websites.</span></div>
+            <div class="flow-step"><span class="step-num mono">03</span><span>Flask backend combines scraped destination context with user constraints.</span></div>
+            <div class="flow-step"><span class="step-num mono">04</span><span>Locally hosted LLaMA 3.2 (via Ollama) generates a structured itinerary and budget plan.</span></div>
+            <div class="flow-step"><span class="step-num mono">05</span><span>Personalized day-by-day travel recommendations are displayed to the user.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="section-tag mono">03 / Stack</div>
+      <h2 class="section-title">Technical Skills</h2>
+      <p class="section-desc">Core programming languages, AI/ML frameworks, web stack, and databases.</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title" style="font-size: 1.02rem;">Programming Languages</div>
+          <div class="badges mono">
+            <span class="badge">Python</span>
+            <span class="badge">C++</span>
+            <span class="badge">Java</span>
+            <span class="badge">SQL</span>
+            <span class="badge">PHP</span>
+            <span class="badge">JavaScript</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="font-size: 1.02rem;">AI & Machine Learning</div>
+          <div class="badges mono">
+            <span class="badge">Google Gemini API</span>
+            <span class="badge">Ollama</span>
+            <span class="badge">LLaMA 3.2</span>
+            <span class="badge">Scikit-learn</span>
+            <span class="badge">Pandas</span>
+            <span class="badge">NumPy</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="font-size: 1.02rem;">Web & Backend Development</div>
+          <div class="badges mono">
+            <span class="badge">Flask</span>
+            <span class="badge">HTML5</span>
+            <span class="badge">CSS3</span>
+            <span class="badge">Bootstrap</span>
+            <span class="badge">JWT</span>
+            <span class="badge">Server-Sent Events (SSE)</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="font-size: 1.02rem;">Databases & Developer Tools</div>
+          <div class="badges mono">
+            <span class="badge">MySQL</span>
+            <span class="badge">Supabase</span>
+            <span class="badge">Firecrawl</span>
+            <span class="badge">Git & GitHub</span>
+            <span class="badge">Jupyter Notebook</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications & Education -->
+    <section id="credentials">
+      <div class="section-tag mono">04 / Background</div>
+      <h2 class="section-title">Certifications & Education</h2>
+      <p class="section-desc">Verified industry certifications and academic qualifications.</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title" style="margin-bottom: 0.85rem;">Certifications</div>
+          <ul class="clean-list">
+            <li><strong>Oracle Certified Professional:</strong> Java SE 17 Developer</li>
+            <li><strong>SAP Certified:</strong> SAP Generative AI Developer</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title" style="margin-bottom: 0.85rem;">Education</div>
+          <div style="margin-bottom: 0.95rem;">
+            <div style="font-weight: 600; font-size: 0.98rem;">SRM University AP</div>
+            <div style="color: var(--text-muted); font-size: 0.89rem;">B.Tech in Computer Science and Engineering (CSE - AIML)</div>
+            <div class="mono" style="color: var(--accent); font-size: 0.82rem;">Aug 2023 – Present · CGPA: 8.22</div>
+          </div>
+          <div>
+            <div style="font-weight: 600; font-size: 0.98rem;">Sri Chaitanya Junior College</div>
+            <div style="color: var(--text-muted); font-size: 0.89rem;">Intermediate (Class XII)</div>
+            <div class="mono" style="color: var(--accent); font-size: 0.82rem;">July 2021 – May 2023 · 97.40%</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="section-tag mono">05 / Connect</div>
+      <h2 class="section-title">Contact</h2>
+      <p class="section-desc">Open to entry-level opportunities in Software Development, AI/ML, and Generative AI.</p>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <div class="contact-label">Email</div>
+          <div class="contact-value" id="emailText">jesweersai1505@gmail.com</div>
+          <button class="flow-toggle" style="margin-top: 0.65rem;" onclick="copyEmail(this)">Copy Email</button>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">Phone</div>
+          <div class="contact-value">+91 7386333989</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">Location</div>
+          <div class="contact-value">Mylavaram, Andhra Pradesh, India</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">GitHub</div>
+          <div class="contact-value"><a href="https://github.com/jesweerkalakonda" target="_blank" rel="noopener" style="color: var(--accent);">github.com/jesweerkalakonda</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Jesweer Kalakonda · Built with HTML, CSS & JavaScript
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const htmlEl = document.documentElement;
+
+    themeToggle.addEventListener('click', () => {
+      const isDark = htmlEl.getAttribute('data-theme') === 'dark';
+      htmlEl.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      themeToggle.textContent = isDark ? 'Dark Mode' : 'Light Mode';
+    });
+
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(sec => {
+        if (window.scrollY >= sec.offsetTop - 140) current = sec.getAttribute('id');
+      });
+      navLinks.querySelectorAll('a').forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+      });
+    });
+
+    function toggleFlow(id, btn) {
+      const drawer = document.getElementById(id);
+      const isOpen = drawer.classList.toggle('open');
+      btn.textContent = isOpen ? 'Hide Architecture Flow' : 'View Architecture Flow';
+    }
+
+    function copyEmail(btn) {
+      const email = document.getElementById('emailText').textContent.trim();
+      navigator.clipboard.writeText(email).then(() => {
+        btn.textContent = 'Copied!';
+        setTimeout(() => { btn.textContent = 'Copy Email'; }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
